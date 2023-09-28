@@ -68,18 +68,14 @@ class Autocomplete {
   }
 
   getMatches( text ) {
-    const options = this.input.options
-    this.searchInput.addEventListener('input', () => {
-        text = this.searchInput.value
-      })  
-    for (let i of options){
-          if (i.textContent.includes(text)){
-              return [
-                  {
-                   text: i.textContent,
+    for (let i of this.input){
+      if (i.text.includes(this.searchInput.value)){
+          return [
+                   {
+                   text: i.text,
                    value: i.value
-                  }
-                     ]
+                   }
+                  ]
           }
     } 
    }
