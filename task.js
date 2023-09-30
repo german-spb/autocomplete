@@ -68,16 +68,13 @@ class Autocomplete {
   }
 
   getMatches( text ) {
+    let list = [{}]  
     for (let i of this.input){
-      if (i.text.includes(this.searchInput.value)){
-          return [
-                   {
-                   text: i.text,
-                   value: i.value
-                   }
-                  ]
-          }
-    } 
+        if (i.text.includes(this.searchInput.value)){
+          list.push({text: i.text, value: i.value})
+        }       
+    }
+    return  list.slice(1,)     
    }
 
 }
